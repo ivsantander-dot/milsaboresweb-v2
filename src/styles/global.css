@@ -1,0 +1,99 @@
+
+/*css sacado del otro*/
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+}
+
+/* Variables CSS - disponibles en toda la app */
+:root {
+  --color-primary: #FFC0CB;
+  --color-primary-dark: #8B4513;
+  --color-text: #5D4037;
+  --color-background: #FFF5E1;
+  --color-light: #F7E7D3;
+  --color-border: #E0C9A6;
+  --transition: all 0.3s ease;
+}
+
+/* Estilos del body */
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--color-background); 
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fuentes para títulos */
+h1, h2, h3, h4, h5 {
+  font-family: "Pacifico", cursive;
+}
+
+/* Asegurar que el contenido principal ocupe el espacio disponible */
+main, .container, section {
+  flex-grow: 1;
+}
+
+/* Links de usuario (login/register) */
+.user-links {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.user-links a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.user-links a:hover {
+  color: var(--color-text);
+}
+
+/* Botón personalizado general */
+.mi-button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: var(--transition);
+}
+
+.mi-button:hover {
+  background-color: var(--color-primary-dark);
+  cursor: pointer;
+  color: white;
+}
+
+/* Tooltip de validación */
+.guiaValidacion {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.guiaValidacion .guiaValidacion-texto {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  bottom: 125%; 
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+}
+
+.guiaValidacion:hover .guiaValidacion-texto {
+  visibility: visible;
+  opacity: 1;
+}
