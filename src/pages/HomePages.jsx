@@ -1,4 +1,3 @@
-//rfce + tab o enter
 import React from 'react'
 import HeaderComponents from '../components/HeaderComponents'
 

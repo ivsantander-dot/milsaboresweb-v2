@@ -1,0 +1,485 @@
+/* Eliminar margenes y padding para espacio entre medio*/
+* {
+  box-sizing: border-box;
+}
+
+/*variables para el css dado que en todas las paginas usamos los mismos colores (en caso de cambios es más rapido y buena practica)*/
+:root {
+  --color-primary: #FFC0CB;       /* Rosa suave */
+  --color-primary-dark: #8B4513;  /* Chocolate */
+  --color-text: #5D4037;          /* Marrón oscuro */
+  --color-background: #FFF5E1;    /* Crema pastel */
+  --color-light: #F7E7D3;         /* Un tono crema más claro */
+  --color-border: #E0C9A6;        /* Para bordes suaves */
+  --transition: all 0.3s ease;
+}
+
+/*aqui se pone el eslito general con la fuente (elegi una mega default) y colores de fondo */
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--color-background); 
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* arreglar los colores de nav sobreescribiendo boostrap */
+nav .nav-link {
+  color: #fff !important;       /* el important es para que tenga más prioridad que boostrap */
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+nav .nav-link:hover {
+  color: var(--color-text) !important; /* el hover al pasar el mouse */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;    
+}
+
+.navbar .navbar-brand { /* segun yo no hace mucho cambio pero le da color al logo(literalmente)*/
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/*el header en la cual todos están igual así que deberia estar bien con los colores y el padding (el espacio en contra el borde) */
+header {
+  background-color: var(--color-primary); /* según yo es como un color de pan siono */
+  color: #fff;
+  padding: 10px 0;
+}
+
+header .logo img {
+  border-radius: 4px;
+}
+
+/*todo lo que tiene que ver con nav ul es el estilo de navegacion, o sea el menú de enlace en realidad solo lo centré y lo hice responsivo (además de darle color aunque es blanco lo pueden cambiar) */
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+header nav ul li a:hover {
+  color: var(--color-text) 
+}
+
+header .cart {
+  font-weight: bold;
+  color: #fff;
+}
+
+/* aquí para abajo son todos los links de inicio de sesión y registro */
+.user-links {
+  text-align: right;
+  margin: 10px 20px;
+  font-size: 0.9rem;
+}
+
+.user-links a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.user-links a:hover {
+  color: var(--color-text);
+}
+/* Fuente especial para títulos y encabezados */
+h1, h2, h3, h4, h5 {
+  font-family: "Pacifico", cursive;
+}
+/* de aquí para abajo es todo lo de hero, o sea la sección principal*/
+.hero {
+  background-color: var(--color-light);
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-text h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* esto es para hacerlo responsivo */
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.hero-text p {
+  margin: 15px 0;
+}
+
+.hero-text button {
+  background-color: var(--color-primary);
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.hero-text button:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.hero-image {
+  text-align: center; 
+  margin: 0;
+  padding: 0;
+}
+
+.btn-productos-home {
+  display: inline-block;  
+  background-color: var(--color-primary);
+  border: none;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;   
+}
+
+.btn-productos-home:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* el estilo de index para los productos */
+.productos-home {
+  display: grid; /*el grid para dejar los arituclos como cuadrados, con las columnas de abajo*/
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.productos-home article { /*el estilo o color para cada cuadrado con bordes más suaves  */
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px; 
+  text-align: center;
+  padding: 15px;
+  transition: var(--transition), box-shadow 0.3s; /*un poco de suavizado para resaltar con el mouse*/
+  height: 100%;
+}
+
+.productos-home article:hover { /*con esto se hace la animación o estilo cuando se pasa el mouse(hover)*/
+  transform: translateY(-5px);/*con el transform se mueve un poco hacia arriba (5 pixeles)*/
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.productos-home img {/*para que las imagenes sean responsivas y no se pasen del cuadrado*/
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+/* estilo de pagina nosotros*/
+.nosotros-section {
+  background-color: var(--color-light);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nosotros-section h1,
+.nosotros-section h2 {
+  font-family: "Pacifico", cursive; /* según el PDF */
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+}
+
+.nosotros-section p {
+  font-family: "Lato", sans-serif; /* según el PDF */
+  font-size: 1rem;
+  color: var(--color-text);
+  text-align: justify;
+}
+
+.nosotros-equipo {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.nosotros-equipo h2 {
+  color: var(--color-primary-dark);
+  margin-bottom: 1rem;
+}
+
+.nosotros-equipo p {
+  font-weight: 500;
+}
+
+/* aquí el pie de pagina con botones aunque probablmente haya que quitarlo si es que usamos boostrap(lo cual de hecho estamos usando) */
+footer {
+  background-color: var(--color-text);
+  color: #fff;
+  padding: 20px 40px;
+
+  display: flex; 
+  justify-content: space-between; /* lo que hace esto es repartir el footer left y right para que no quede el email solo y feo */
+  align-items: flex-start; 
+  flex-wrap: wrap; /* por si acaso hacerlo responsivo */
+}
+
+.footer-info {
+  font-size: smaller;
+}
+
+.footer-categories span {
+  margin-bottom: 20px;
+  display: inline-block;  
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;   
+}
+.footer-categories span:hover {
+  color: #a0a0a0;
+}
+
+.payment-icons img {
+  width: 50px;      
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-right{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+footer input[type="email"] {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+footer button {
+  background-color: var(--color-primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  color: #fff;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 100%;
+}
+
+footer button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Titulo de Home para la lista de productos más vendidos*/
+.productos-home-title h3 {
+  display: inline-block;
+  border-bottom: 2px solid var(--color-text); /* línea de subrayado */
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+
+.productos-home-title {
+  text-align: center;    /*centrar el titulo (No funciona si se junta con el de arriba)*/
+}
+
+.productos-home {
+  display: block; /* Asegura que los productos aparezcan debajo */
+  text-align: center; /* opcional: centra los productos */
+}
+
+.productos-title h3 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+/* el estilo para los productos en PRODUCTOS*/
+.productos {
+  display: grid; /*el grid para dejar los articulos como cuadrados, con las columnas de abajo*/
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px;
+}
+
+.productos article { /*el estilo o color para cada cuadrado con bordes más suaves  */
+  background-color: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px; 
+  text-align: center;
+  padding: 15px;
+  transition: var(--transition), box-shadow 0.3s; /*un poco de suavizado para resaltar con el mouse*/
+}
+
+.productos article:hover { /*con esto se hace la animación o estilo cuando se pasa el mouse(hover)*/
+  transform: translateY(-5px);/*con el transform se mueve un poco hacia arriba (5 pixeles)*/
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.productos img {/*para que las imagenes sean responsivas y no se pasen del cuadrado*/
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+body.admin-page {
+    background-color: #f8f4e1; 
+    color: #222;              
+}
+
+body.admin-page .sidebar {
+    background-color: #e0c9a6; 
+}
+
+body.admin-page .nav-link {
+    color: #000 !important; 
+}
+body.admin-page .nav-link:hover {
+    color: #663300 !important; 
+}
+
+.filtros {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+    }
+.filtro-grupo {
+  margin-bottom: 15px;
+}
+.filtro-grupo label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.btn-filtro {
+  margin: 2px;
+  padding: 5px 12px;
+  font-size: 0.9em;
+}
+
+.btn-filtro.active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+.productos article {
+  transition:var(--transition)
+  }
+
+.productos article.oculto {
+  display: none;
+}
+/* ----- de aquí deberian de hacer sus propios estilos para cada pagina aunque no me queda muy claro con lo de boostrap, deberia de ver-------*/
+
+.mi-button {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.mi-button:hover {
+  background-color: var(--color-primary-dark);
+  cursor: pointer;
+  color: white;
+}
+
+.text-center {
+  font-size: 20px;
+}
+
+/* Tooltip */
+.guiaValidacion {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.guiaValidacion .guiaValidacion-texto {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  
+  bottom: 125%; 
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+}
+
+.guiaValidacion:hover .guiaValidacion-texto {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Asegurar que el contenido principal ocupe el espacio disponible */
+main, .container, section {
+  flex-grow: 1;
+}
+
+/*CSS de sidebar administrador*/
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  padding-top: 20px;
+  background-color: var(--color-primary-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .nav-link {
+  color: var(--color-text) !;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 20px;
+}
+
+.main-admin {
+  color: var(--color-text);
+  height: 100%;
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.nos-img-50anios {
+  height: 300px;
+  width: 400px;
+}
+.nos-img-mision {
+  height: 300px;
+  width: 400px;
+}
+.nos-img-vision {
+  height: 300px;
+  width: 400px;
+}
