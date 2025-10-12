@@ -27,7 +27,6 @@ function BlogsPages() {
       descripcionBlog='Un estudio de la Universidad de Chile ha revelado una sorprendente conexión entre el consumo de postres y el aumento de la creatividad. La investigación sugiere que disfrutar de un dulce, como una torta, puede potenciar las áreas del cerebro relacionadas con el pensamiento lateral y la resolución de problemas. En Pastelería 1000 Sabores, siempre hemos sabido que nuestros postres alegran el espíritu, y ahora sabemos que también podrían inspirar la mente.'
       fotoBlog='./src/assets/react.svg'
       />
-
       <FooterComponent/>
     </>
   )
