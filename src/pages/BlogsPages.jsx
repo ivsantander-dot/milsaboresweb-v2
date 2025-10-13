@@ -1,7 +1,7 @@
 import React from 'react'
 import ArticuloBlogsComponent from '../components/ArticuloBlogsComponent'
-import HeaderComponents from '../components/HeaderComponents'
-import FooterComponent from '../components/FooterComponent'
+import HeaderComponents from '../components/Header/HeaderComponents'
+import FooterComponent from '../components/Footer/FooterComponent'
 
 function BlogsPages() {
   return (

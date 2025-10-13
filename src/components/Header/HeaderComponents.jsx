@@ -22,10 +22,10 @@ function HeaderComponents() {
 
           <Navbar.Collapse id="mainNavbar">
             <Nav className="mx-auto mb-2 mb-lg-0">
-              <Nav.Link href="index.html" className="text-white">Home</Nav.Link>
+              <Nav.Link href="/Home" className="text-white">Home</Nav.Link>
               <Nav.Link href="productos.html" className="text-white">Productos</Nav.Link>
               <Nav.Link href="nosotros.html" className="text-white">Nosotros</Nav.Link>
-              <Nav.Link href="blogs.html" className="text-white">Blogs</Nav.Link>
+              <Nav.Link href="/BlogsPages" className="text-white">Blogs</Nav.Link>
               <Nav.Link href="contacto.html" className="text-white">Contacto</Nav.Link>
             </Nav>
           </Navbar.Collapse>
