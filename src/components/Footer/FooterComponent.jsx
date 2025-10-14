@@ -1,12 +1,14 @@
 import React from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import styles from '../Footer/Footer.module.css'; // ✅ Importa el CSS Module
 
 function Footer() {
   return (
-    <footer className="bg-dark text-white py-4">
+    <footer className={styles.footer}>
       <Container>
+        {/* Texto informativo */}
         <Row className="mb-3">
-          <Col md={12} className="footer-info mb-3">
+          <Col md={12} className={styles.footerInfo}>
             <p>
               © 2025, Pastelería Mil Sabores. Todos los derechos reservados.  
               Pastelería Mil Sabores, el logotipo de Pastelería Mil Sabores y los nombres de nuestros productos son marcas comerciales o marcas registradas de Pastelería Mil Sabores en Chile.  
@@ -15,23 +17,34 @@ function Footer() {
           </Col>
         </Row>
 
+        {/* Sección inferior */}
         <Row className="align-items-center">
-          <Col md={6} className="footer-left mb-3 mb-md-0">
-            <div className="footer-categories mb-2">
-              <a href="#" className="text-white text-decoration-none"><span>Categoria X</span></a> |{' '}
-              <a href="productos.html" className="text-white text-decoration-none"><span>Productos</span></a> |{' '}
-              <a href="contacto.html" className="text-white text-decoration-none"><span>Contacto</span></a>
+          {/* Izquierda: categorías + medios de pago */}
+          <Col md={6} className="mb-3 mb-md-0">
+            <div className={styles.footerCategories}>
+              <a href="#" className="text-decoration-none">
+                <span>Categoria X</span>
+              </a>{' '}
+              |{' '}
+              <a href="/productos" className="text-decoration-none">
+                <span>Productos</span>
+              </a>{' '}
+              |{' '}
+              <a href="/contacto" className="text-decoration-none">
+                <span>Contacto</span>
+              </a>
             </div>
 
-            <div className="payment-icons d-flex gap-2">
-              <img src="" alt="Visa" style={{ width: '50px' }} />
-              <img src="" alt="MasterCard" style={{ width: '50px' }} />
-              <img src="" alt="RedCompra" style={{ width: '50px' }} />
+            <div className={styles.paymentIcons}>
+              <img src="/visa.png" alt="Visa" />
+              <img src="/mastercard.png" alt="MasterCard" />
+              <img src="/redcompra.png" alt="RedCompra" />
             </div>
           </Col>
 
-          <Col md={6} className="footer-right">
-            <p>Mantengase al tanto de más noticias</p>
+          {/* Derecha: newsletter */}
+          <Col md={6} className={styles.footerRight}>
+            <p>Mantente al tanto de más noticias</p>
             <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
               <Form.Control
                 type="email"

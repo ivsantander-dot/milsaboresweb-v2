@@ -1,24 +1,33 @@
+
 .header {
   background-color: var(--color-primary);
   color: #fff;
   padding: 10px 0;
 }
 
+
 .logo img {
   border-radius: 4px;
 }
 
-/* Sobrescribir estilos de Bootstrap para el navbar */
+
 .navbar :global(.nav-link) {
+  text-decoration: none;
   color: #fff !important;
   font-weight: 500;
   transition: var(--transition);
+  margin: 0 10px;
 }
 
-.navbar :global(.nav-link):hover {
-  color: var(--color-text) !important;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
+.navbar :global(.nav-link:hover) {
+  color: var(--color-text);
+}
+
+.navbar :global(.navbar-nav) {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .navbar :global(.navbar-brand) {
@@ -28,10 +37,14 @@
 
 .cartLink {
   font-weight: bold;
-  color: #fff;
+  color: #fff !important;
   text-decoration: none;
   display: flex;
   align-items: center;
+}
+
+.cartLink:hover {
+  color: var(--color-text);
 }
 
 .cartIcon {

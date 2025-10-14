@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import HeaderComponents from "./components/Header/HeaderComponents";
+import "../src/styles/global.css";
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import BlogsArticle1Pages from "./pages/BlogsArticle1Pages";
@@ -10,7 +10,6 @@ import HomeAdmin from "./pages/HomeAdmin";
 function App() {
   return (
     <>
-      <HeaderComponents />
       <div className="container mt-4">
         <Routes>
           <Route path="/" element={<Home />} />
