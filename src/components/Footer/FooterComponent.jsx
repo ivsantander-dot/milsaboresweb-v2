@@ -1,46 +1,112 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import styles from './Footer.module.css';
 
+/**
+ * Componente Footer
+ * Pie de página con información, enlaces y suscripción
+ * 
+ * DEMUESTRA:
+ * - Uso de STATE para el formulario
+ * - Manejo de eventos (onSubmit)
+ * - Validación básica
+ */
 function Footer() {
+  // STATE para el email del formulario
+  const [email, setEmail] = useState('');
+  const [mensaje, setMensaje] = useState('');
+
+  // Manejar envío del formulario
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Validación básica
+    if (!email || !email.includes('@')) {
+      setMensaje('Por favor ingresa un email válido');
+      return;
+    }
+
+    // Simular suscripción exitosa
+    setMensaje('¡Gracias por suscribirte!');
+    setEmail('');
+
+    // Limpiar mensaje después de 3 segundos
+    setTimeout(() => {
+      setMensaje('');
+    }, 3000);
+  };
+
   return (
-    <footer className="bg-dark text-white py-4">
+    <footer className={styles.footer}>
       <Container>
-        <Row className="mb-3">
-          <Col md={12} className="footer-info mb-3">
+        {/* Fila de información */}
+        <Row className="mb-4">
+          <Col md={12} className={styles.footerInfo}>
             <p>
-              © 2025, Pastelería Mil Sabores. Todos los derechos reservados.  
-              Pastelería Mil Sabores, el logotipo de Pastelería Mil Sabores y los nombres de nuestros productos son marcas comerciales o marcas registradas de Pastelería Mil Sabores en Chile.  
-              Otras marcas o nombres de productos son marcas comerciales de sus respectivos propietarios.
+              © 2025, Pastelería Mil Sabores. Todos los derechos reservados.
+              Pastelería Mil Sabores, el logotipo de Pastelería Mil Sabores y los nombres 
+              de nuestros productos son marcas comerciales o marcas registradas de 
+              Pastelería Mil Sabores en Chile. Otras marcas o nombres de productos son 
+              marcas comerciales de sus respectivos propietarios.
             </p>
           </Col>
         </Row>
 
-        <Row className="align-items-center">
-          <Col md={6} className="footer-left mb-3 mb-md-0">
-            <div className="footer-categories mb-2">
-              <a href="#" className="text-white text-decoration-none"><span>Categoria X</span></a> |{' '}
-              <a href="productos.html" className="text-white text-decoration-none"><span>Productos</span></a> |{' '}
-              <a href="contacto.html" className="text-white text-decoration-none"><span>Contacto</span></a>
+        {/* Fila de enlaces y newsletter */}
+        <Row>
+          {/* Columna izquierda: Enlaces y medios de pago */}
+          <Col md={6} className="mb-3 mb-md-0">
+            {/* Enlaces de categorías */}
+            <div className="mb-3">
+              <Link to="/productos" className={styles.categoryLink}>
+                Productos
+              </Link>
+              |
+              <Link to="/nosotros" className={styles.categoryLink}>
+                Nosotros
+              </Link>
+              |
+              <Link to="/contacto" className={styles.categoryLink}>
+                Contacto
+              </Link>
             </div>
 
-            <div className="payment-icons d-flex gap-2">
-              <img src="" alt="Visa" style={{ width: '50px' }} />
-              <img src="" alt="MasterCard" style={{ width: '50px' }} />
-              <img src="" alt="RedCompra" style={{ width: '50px' }} />
+            {/* Iconos de medios de pago */}
+            <div className="d-flex gap-2 flex-wrap">
+              <span className={styles.paymentIcon}>💳 Visa</span>
+              <span className={styles.paymentIcon}>💳 Mastercard</span>
+              <span className={styles.paymentIcon}>💳 RedCompra</span>
             </div>
           </Col>
 
-          <Col md={6} className="footer-right">
-            <p>Mantengase al tanto de más noticias</p>
-            <Form className="d-flex" onSubmit={(e) => e.preventDefault()}>
-              <Form.Control
-                type="email"
-                placeholder="Ingresar correo"
-                className="me-2"
-              />
-              <Button type="submit" variant="primary">
+          {/* Columna derecha: Newsletter */}
+          <Col md={6}>
+            <p className={styles.newsletterTitle}>
+              Mantente al tanto de más noticias
+            </p>
+            <Form onSubmit={handleSubmit}>
+              <Form.Group className="mb-2">
+                <Form.Control
+                  type="email"
+                  placeholder="Ingresar correo"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Form.Group>
+              <Button 
+                type="submit" 
+                className={styles.subscribeButton}
+              >
                 Suscribirse
               </Button>
+              
+              {/* Mensaje de confirmación */}
+              {mensaje && (
+                <div className="mt-2 text-white">
+                  {mensaje}
+                </div>
+              )}
             </Form>
           </Col>
         </Row>
