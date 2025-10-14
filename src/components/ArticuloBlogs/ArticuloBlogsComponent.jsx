@@ -1,11 +1,13 @@
 import React from 'react'
 import { Container, Row, Col, Button, Image } from 'react-bootstrap'
-
+import { Link } from 'react-router-dom'
+import links from "../../links";
 
 export default function ArticuloBlogsComponent(props) {
     const tituloBlog = props.tituloBlog;
     const descripcionBlog = props.descripcionBlog;
     const fotoBlog = props.fotoBlog;
+    const linkBlog = props.linkBlog;
   return (
     <>
     <Container className="my-4">
@@ -15,9 +17,11 @@ export default function ArticuloBlogsComponent(props) {
             <h3>{tituloBlog}</h3>
           </header>
           <p>{descripcionBlog}</p>
-          <Button variant="primary" href="/blogsArticle1" className="mi-button">
-            Ver artículo
-          </Button>
+          <Link to={links[linkBlog]}>
+            <Button variant="primary" className="mi-button">
+              Ver artículo
+            </Button>
+          </Link>
         </Col>
 
         <Col lg={4} className="text-center">

@@ -1,6 +1,8 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import HeaderComponents from "../components/Header/HeaderComponents";
 import FooterComponent from "../components/Footer/FooterComponent";
+import links from "../links";
+
 
 export default function HazañaTorta() {
   return (
