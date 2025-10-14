@@ -1,16 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-import BlogsPages from './pages/BlogsPages'
-import BlogsArticle2Pages from './pages/BlogsArticle2Pages'
-import BlogsArticle1Pages from './pages/BlogsArticle1Pages'
-import HomePages from './pages/HomePages'
+import { Routes, Route } from "react-router-dom";
+import HeaderComponents from "./components/Header/HeaderComponents";
+import Home from "./pages/Home";
+import Blogs from "./pages/Blogs";
 
 function App() {
   return (
     <>
-      <BlogsPages/>
+      <HeaderComponents />
+      <div className="container mt-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blogs" element={<Blogs />} />
+        </Routes>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
