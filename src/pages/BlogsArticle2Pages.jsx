@@ -53,7 +53,7 @@ export default function HazañaTorta() {
                 <Col xs={12} lg={4} className="order-2">
                 <figure>
                     <Image
-                    src="images/pasteles/TC002.png"
+                    src="src/assets/pasteles/TC002.png"
                     alt="Torta cuadrada de frutas"
                     fluid
                     rounded

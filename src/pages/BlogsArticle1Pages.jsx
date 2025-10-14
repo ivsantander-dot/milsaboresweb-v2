@@ -60,7 +60,7 @@ export default function HazañaTorta() {
             <Col xs={12} lg={4} className="order-2">
                 <figure>
                 <Image
-                    src="images/nosotros/pastelgigante.png"
+                    src="src/assets/pasteles/pastelgigante.png"
                     fluid
                     rounded
                     className="mx-auto w-100"
