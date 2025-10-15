@@ -10,7 +10,6 @@ import HomeAdmin from "./pages/HomeAdmin";
 function App() {
   return (
     <>
-      <HeaderComponents />
       <div className="container mt-4">
         <Routes>
           <Route path="/" element={<Home />} />

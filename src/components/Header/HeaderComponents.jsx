@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { getCartItemCount } from '../utils/cartHelpers';
 import styles from './Header.module.css';
 import links from '../../links'; 
+
+import { getCartItemCount } from '../../utils/carthelpers';
 
 /**
  * Componente Header
