@@ -33,7 +33,7 @@ describe ("Componenete Blogs", () => {
         render(<MemoryRouter><Blogs /></MemoryRouter>);
         expect(screen.getByTestId('footer-mock')).toBeInTheDocument();
     });
-    it("Renderiza un articulo correctamente", () => {
+    it("Renderiza al menos un articulo correctamente", () => {
         render(<MemoryRouter><Blogs /></MemoryRouter>);
         expect(screen.getAllByTestId('articulo-mock')[0]).toBeInTheDocument();
     });
