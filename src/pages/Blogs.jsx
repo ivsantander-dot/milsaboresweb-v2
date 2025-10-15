@@ -28,7 +28,7 @@ function BlogsPages() {
       linkBlog='blogsArticle2'
       />
 
-        <FooterComponent/>
+      <FooterComponent/>
 
       
     </>
