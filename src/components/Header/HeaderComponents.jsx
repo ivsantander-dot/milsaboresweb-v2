@@ -3,8 +3,9 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import links from '../../links'; 
-
 import { getCartItemCount } from '../../utils/carthelpers';
+import logoImg from '../Header/logo.jpg';
+import carritoImg from '../Header/carrito.png';
 
 /**
  * Componente Header

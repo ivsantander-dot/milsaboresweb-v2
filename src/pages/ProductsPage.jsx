@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ProductCard from '../components/ProductCard';
+import Header from '../components/Header/HeaderComponents';
+import Footer from '../components/Footer/FooterComponent';
 import { getProducts } from '../data/productsData';
-import '../styles/productos.css';
+import ProductCard from '../components/ProductCard';
+
 
 /**
  * Página de Productos

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from '../components/Header/HeaderComponents';
+import Footer from '../components/Footer/FooterComponent';
 import {
   getCart,
   removeFromCart,
@@ -10,7 +10,7 @@ import {
   clearCart,
   getCartSubtotal,
   getCartTotal
-} from '../utils/cartHelpers';
+} from '../utils/carthelpers';
 
 /**
  * Página del Carrito de Compras
