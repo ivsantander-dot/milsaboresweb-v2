@@ -1,39 +1,75 @@
-import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import links from "../../links";
-import styles from "../Header/Header.module.css"; // ✅ Importamos el CSS module
+import React, { useState, useEffect } from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import styles from './Header.module.css';
+import links from '../../links'; 
+import { getCartItemCount } from '../../utils/carthelpers';
+import logoImg from '../Header/assets/logo.jpg';
+import carritoImg from '../Header/assets/carrito.png';
 
-function HeaderComponents() {
+/**
+ * Componente Header
+ * Barra de navegación principal con contador de carrito dinámico
+ * 
+ * - Uso de STATE (cartCount)
+ * - Uso de EFFECT (useEffect para actualizar contador)
+ * - Gestión de eventos (listener de storage)
+ * - Diseño responsivo con Bootstrap
+ * - Escalabilidad con rutas centralizadas
+ */
+function Header() {
+  // STATE: Contador de items en el carrito
+  const [cartCount, setCartCount] = useState(0);
+
+  // EFFECT: Actualizar contador cuando se monta el componente
+  useEffect(() => {
+    const updateCartCount = () => {
+      const count = getCartItemCount();
+      setCartCount(count);
+    };
+
+    updateCartCount(); // Actualizar al cargar
+
+    // Listener para cambios en localStorage (por ejemplo, al agregar al carrito)
+    const handleStorageChange = () => {
+      updateCartCount();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
   return (
     <header className={styles.header}>
-      <Navbar expand="lg" bg="transparent" variant="dark" className={styles.navbar}>
+      <Navbar expand="lg" variant="dark" bg="primary">
         <Container fluid>
-          {/* LOGO / MARCA */}
-          <Navbar.Brand as={Link} to={links.home} className={styles.logo}>
+          {/* Logo */}
+          <Navbar.Brand as={Link} to={links.home} className="d-flex align-items-center">
+            
             PMS©
           </Navbar.Brand>
 
-          {/* BOTÓN RESPONSIVO */}
+          {/* Botón hamburguesa (móvil) */}
           <Navbar.Toggle aria-controls="mainNavbar" />
 
-          {/* MENÚ */}
+          {/* Links de navegación */}
           <Navbar.Collapse id="mainNavbar">
             <Nav className="mx-auto mb-2 mb-lg-0">
-              <Nav.Link as={Link} to={links.home}>Home</Nav.Link>
-              <Nav.Link as={Link} to={links.productos}>Productos</Nav.Link>
-              <Nav.Link as={Link} to={links.nosotros}>Nosotros</Nav.Link>
-              <Nav.Link as={Link} to={links.blogs}>Blogs</Nav.Link>
-              <Nav.Link as={Link} to={links.contacto}>Contacto</Nav.Link>
+              <Nav.Link as={Link} to={links.home} className="text-white">Home</Nav.Link>
+              <Nav.Link as={Link} to={links.productos} className="text-white">Productos</Nav.Link>
+              <Nav.Link as={Link} to={links.nosotros} className="text-white">Nosotros</Nav.Link>
+              <Nav.Link as={Link} to={links.blogs} className="text-white">Blogs</Nav.Link>
+              <Nav.Link as={Link} to={links.contacto} className="text-white">Contacto</Nav.Link>
             </Nav>
           </Navbar.Collapse>
 
-          {/* CARRITO */}
-          <Link
-            to="/carrito"
-            className={styles.cartLink}
-          >
-            Carrito (<span id="cart-count">0</span>)
+          {/* Carrito con contador dinámico */}
+          <Link to={links.carrito} className={styles.cartLink}>
+            <span className={styles.cartIcon}></span>
+            Carrito (<span>{cartCount}</span>)
           </Link>
         </Container>
       </Navbar>
@@ -41,4 +77,4 @@ function HeaderComponents() {
   );
 }
 
-export default HeaderComponents;
+export default Header;
