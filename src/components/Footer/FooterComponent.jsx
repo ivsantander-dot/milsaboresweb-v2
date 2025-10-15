@@ -39,7 +39,6 @@ function Footer() {
 
   return (
     <footer className={styles.footer}>
-    <footer className={styles.footer}>
       <Container>
         {/* Fila de información */}
         <Row className="mb-4">
