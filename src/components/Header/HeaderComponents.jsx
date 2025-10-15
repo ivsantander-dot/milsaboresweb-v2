@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 import links from '../../links'; 
 import { getCartItemCount } from '../../utils/carthelpers';
-import logoImg from '../Header/logo.jpg';
-import carritoImg from '../Header/carrito.png';
+import logoImg from '../Header/assets/logo.jpg';
+import carritoImg from '../Header/assets/carrito.png';
 
 /**
  * Componente Header
@@ -48,17 +48,7 @@ function Header() {
         <Container fluid>
           {/* Logo */}
           <Navbar.Brand as={Link} to={links.home} className="d-flex align-items-center">
-            <img
-              src="/logo.jpg"
-              alt="logo"
-              width="30"
-              height="24"
-              className="me-2"
-              style={{ borderRadius: '2px' }}
-              onError={(e) => {
-                e.target.style.display = 'none'; // Oculta si no carga
-              }}
-            />
+            
             PMS©
           </Navbar.Brand>
 
@@ -78,7 +68,7 @@ function Header() {
 
           {/* Carrito con contador dinámico */}
           <Link to={links.carrito} className={styles.cartLink}>
-            <span className={styles.cartIcon}>🛒</span>
+            <span className={styles.cartIcon}></span>
             Carrito (<span>{cartCount}</span>)
           </Link>
         </Container>
