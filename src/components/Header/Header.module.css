@@ -2,7 +2,6 @@
   background-color: var(--color-primary);
   color: #fff;
   padding: 10px 0;
-  
 }
 
 .logo img {
@@ -13,6 +12,7 @@
 .navbar :global(.nav-link) {
   color: #fff !important;
   font-weight: 500;
+  margin-inline: 25px;
   transition: var(--transition);
 }
 
@@ -39,9 +39,4 @@
   width: 20px;
   height: 20px;
   margin-right: 8px;
-}
-
-.header:global(.container-fluid) {
-  padding-left: 0;
-  padding-right: 0;
 }

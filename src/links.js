@@ -7,7 +7,10 @@ const links = {
   carrito: "/carrito",
   blogsArticle1: "/blogsArticle1",
   blogsArticle2: "/blogsArticle2",
-  homeAdmin : "/homeAdmin"
+  homeAdmin : "/homeAdmin",
+  login: "/login",
+  register: "/register",
+  productoDetalle: "/productoDetalle"
 };
 
 export default links;
