@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import styles from './Header.module.css';
+import styles from '../Header/Header.module.css';
 import links from '../../links'; 
 import { getCartItemCount } from '../../utils/carthelpers';
 import logoImg from '../Header/assets/logo.jpg';
@@ -44,8 +44,8 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      <Navbar expand="lg" variant="dark" bg="primary">
-        <Container fluid>
+      <Navbar expand="lg" variant="dark" className={styles.navbar}>
+        
           {/* Logo */}
           <Navbar.Brand as={Link} to={links.home} className="d-flex align-items-center">
             
@@ -71,7 +71,7 @@ function Header() {
             <span className={styles.cartIcon}></span>
             Carrito (<span>{cartCount}</span>)
           </Link>
-        </Container>
+       
       </Navbar>
     </header>
   );

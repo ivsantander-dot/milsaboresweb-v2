@@ -11,7 +11,6 @@ import CartPage from './pages/CartPage';
 function App() {
   return (
     <>
-      <div className="container mt-4">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs" element={<Blogs />} />
@@ -22,7 +21,7 @@ function App() {
           <Route path="/productos" element={<ProductsPage />} />
 
         </Routes>
-      </div>
+     
     </>
   );
 }
