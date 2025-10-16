@@ -1,17 +1,16 @@
-/* Estilos del contenedor principal */
+
 .login-container {
-  flex-grow: 1; /* asegura que ocupe el espacio disponible */
+  flex-grow: 1;
   padding: 2rem 1rem;
 }
 
-/* Logo de la empresa */
+
 .login-logo {
   max-width: 200px;
   height: auto;
   margin-bottom: 1rem;
 }
 
-/* Título principal */
 .login-title {
   font-family: "Pacifico", cursive;
   font-size: 2rem;
@@ -19,7 +18,7 @@
   color: var(--color-text);
 }
 
-/* Formulario */
+
 .login-form {
   background-color: var(--color-light);
   padding: 2rem;
@@ -27,14 +26,14 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Input de formulario */
+
 .login-form input {
   padding: 0.5rem;
   border-radius: 0.375rem;
   border: 1px solid var(--color-border);
 }
 
-/* Botón de envío */
+
 .login-form button {
   background-color: var(--color-primary);
   color: white;
@@ -50,36 +49,51 @@
   color: white;
 }
 
-/* Feedback de validación (usando Bootstrap) */
+
 .login-form .invalid-feedback {
   font-size: 0.85rem;
 }
 
-/* Tooltip de validación para inputs */
-.guiaValidacion {
+
+.tooltip {
   position: relative;
   display: inline-block;
   cursor: pointer;
   margin-left: 5px;
 }
 
-.guiaValidacion .guiaValidacion-texto {
+.tooltipText {
   visibility: hidden;
   width: 220px;
   background-color: #333;
   color: #fff;
+  text-align: left;
   border-radius: 5px;
   padding: 8px;
   position: absolute;
-  bottom: 125%;
+  bottom: 125%; /* coloca arriba del icono */
+  left: 50%;
   transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.3s;
   font-size: 0.85rem;
   z-index: 10;
+  line-height: 1.4;
 }
 
-.guiaValidacion:hover .guiaValidacion-texto {
+.tooltip:hover .tooltipText {
   visibility: visible;
   opacity: 1;
+}
+
+
+.tooltipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
 }

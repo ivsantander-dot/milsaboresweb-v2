@@ -145,13 +145,14 @@ function CartPage() {
                         {/* Imagen */}
                         <Col xs={3} md={2}>
                           <img
-                            src={`/images/pasteles/${producto.imagen}`}
+                            src={producto.imagen}
                             alt={producto.nombre}
                             className="img-fluid rounded"
                             onError={(e) => {
-                              e.target.src = '/images/placeholder.png';
+                              e.target.src = '/src/assets/placeholder.png'; //en caso de error, se muestra el placeholder
                             }}
                           />
+
                         </Col>
 
                         {/* Información */}

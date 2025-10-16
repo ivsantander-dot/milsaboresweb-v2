@@ -3,7 +3,6 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import HeaderComponents from "../components/Header/HeaderComponents";
 import FooterComponents from "../components/Footer/FooterComponent";
 import styles from "../styles/register.module.css";
-import logoEmpresa from "../../public/images/LogoEmpresa.jpg";
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -37,8 +36,7 @@ export default function Register() {
       setValidated(true);
       return;
     }
-    // Aquí iría la lógica de registro (API, localStorage, etc.)
-    console.log("Usuario registrado:", formData);
+    
   };
 
   // Función para llenar comunas según región

@@ -19,53 +19,35 @@ function ProductCard({
   nombre, 
   descripcion, 
   precio, 
-  imagen, 
+  imagen,   // imagen ahora es una importación, no un string
   enOferta = false 
 }) {
-  // STATE: Cantidad del producto a agregar
   const [cantidad, setCantidad] = useState(1);
-  
-  // STATE: Mensaje de confirmación al agregar al carrito
   const [mensaje, setMensaje] = useState('');
 
-  // Función para manejar el cambio de cantidad
   const handleCantidadChange = (e) => {
     const value = parseInt(e.target.value);
-    if (value >= 1) {
-      setCantidad(value);
-    }
+    if (value >= 1) setCantidad(value);
   };
 
-  // Función para agregar al carrito
   const handleAgregarCarrito = () => {
     const producto = { id, nombre, descripcion, precio, imagen };
     addToCart(producto, cantidad);
-    
-    // Mostrar mensaje de confirmación
+
     setMensaje(`✓ ${cantidad} ${nombre} agregado(s) al carrito`);
-    
-    // Limpiar mensaje después de 3 segundos
-    setTimeout(() => {
-      setMensaje('');
-    }, 3000);
-    
-    // Disparar evento personalizado para actualizar el contador del header
+    setTimeout(() => setMensaje(''), 3000);
+
     window.dispatchEvent(new Event('storage'));
-    
-    // Resetear cantidad
     setCantidad(1);
   };
 
   return (
     <article className={styles.card}>
-      {/* Badge de oferta (renderizado condicional) */}
-      {enOferta && (
-        <span className={styles.badge}>¡OFERTA!</span>
-      )}
+      {enOferta && <span className={styles.badge}>¡OFERTA!</span>}
 
-      {/* Imagen del producto */}
+      {/* 🔹 Imagen ahora viene importada directamente, sin usar /src/ */}
       <img 
-        src={`/src/assets/pasteles/${imagen}`}
+        src={imagen}
         alt={nombre}
         className={styles.image}
         onError={(e) => {
@@ -73,18 +55,12 @@ function ProductCard({
         }}
       />
 
-      {/* Información del producto */}
       <h3 className={styles.title}>{nombre}</h3>
       <p className={styles.description}>{descripcion}</p>
-      <p className={styles.price}>
-        ${precio.toLocaleString('es-CL')}
-      </p>
+      <p className={styles.price}>${precio.toLocaleString('es-CL')}</p>
 
-      {/* Control de cantidad */}
       <div className={styles.quantityControl}>
-        <label htmlFor={`cantidad-${id}`} className="me-2">
-          Cantidad:
-        </label>
+        <label htmlFor={`cantidad-${id}`} className="me-2">Cantidad:</label>
         <input
           type="number"
           id={`cantidad-${id}`}
@@ -96,7 +72,6 @@ function ProductCard({
         />
       </div>
 
-      {/* Botón agregar al carrito */}
       <Button 
         variant="primary" 
         className="mi-button w-100 mt-2"
@@ -105,17 +80,11 @@ function ProductCard({
         Agregar al carrito
       </Button>
 
-      {/* Mensaje de confirmación (renderizado condicional) */}
-      {mensaje && (
-        <div className={styles.mensaje}>
-          {mensaje}
-        </div>
-      )}
+      {mensaje && <div className={styles.mensaje}>{mensaje}</div>}
     </article>
   );
 }
 
-// Validación de PropTypes
 ProductCard.propTypes = {
   id: PropTypes.number.isRequired,
   nombre: PropTypes.string.isRequired,

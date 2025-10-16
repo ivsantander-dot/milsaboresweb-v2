@@ -46,15 +46,26 @@ export default function Login() {
         <h1 className={styles.loginTitle}>Pastelería Mil Sabores</h1>
       </Container>
 
-      {/* Login Form */}
+      {/*Formulario*/}
       <Container className={`my-5 ${styles.loginFormContainer}`}>
         <Row className="justify-content-center">
           <Col md={8} lg={6}>
             <h2 className="text-center mb-4">Iniciar Sesión</h2>
 
             <Form noValidate validated={validated} onSubmit={handleSubmit} className={styles.loginForm}>
-              <Form.Group className="mb-3" controlId="emailId">
-                <Form.Label>Correo</Form.Label>
+              {/* Correo */}
+              <Form.Group className="mb-3 position-relative" controlId="emailId">
+                <Form.Label>
+                  Correo *
+                  <span className={styles.tooltip}> (?)
+                    <span className={styles.tooltipText}>
+                      Debe terminar en:<br/>
+                      • @duoc.cl<br/>
+                      • @profesor.duoc.cl<br/>
+                      • @gmail.com
+                    </span>
+                  </span>
+                </Form.Label>
                 <Form.Control
                   type="email"
                   placeholder="ejemplo@duoc.cl"
@@ -68,8 +79,16 @@ export default function Login() {
                 </Form.Control.Feedback>
               </Form.Group>
 
-              <Form.Group className="mb-3" controlId="contraseñaId">
-                <Form.Label>Contraseña</Form.Label>
+              {/* Contraseña */}
+              <Form.Group className="mb-3 position-relative" controlId="contraseñaId">
+                <Form.Label>
+                  Contraseña *
+                  <span className={styles.tooltip}> (?)
+                    <span className={styles.tooltipText}>
+                      Debe tener entre 4-10 caracteres
+                    </span>
+                  </span>
+                </Form.Label>
                 <Form.Control
                   type="password"
                   placeholder="**********"
