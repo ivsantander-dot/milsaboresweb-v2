@@ -1,3 +1,5 @@
+import React from 'react';
+
 const CART_KEY = 'carrito';
 
 // OPERACIONES CRUD DEL CARRITO

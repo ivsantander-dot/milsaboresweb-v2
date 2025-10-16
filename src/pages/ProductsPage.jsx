@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Header from '../components/Header/HeaderComponents';
 import Footer from '../components/Footer/FooterComponent';
 import { getProducts } from '../data/productsData';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/ProductCard/ProductCard';
 
 
 /**
