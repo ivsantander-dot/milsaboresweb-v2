@@ -1,17 +1,101 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import HeaderComponents from '../components/Header/HeaderComponents';
 import FooterComponents from '../components/Footer/FooterComponent';
+import styles from "../styles/login.module.css";
 
-function Login() {
+
+import { useNavigate } from "react-router-dom";
+
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
+
+  // Manejar envío del formulario
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    if (!form.checkValidity()) {
+      e.stopPropagation();
+      setValidated(true);
+      return;
+    }
+
+    // Validación de login
+    if (email.trim() === "admin@gmail.com" && password.trim() === "admin") {
+      navigate("/homeAdmin");
+    } else {
+      setValidated(true);
+    }
+  };
+
   return (
     <>
       <HeaderComponents />
 
-       <div>Login</div>
+      {/* Logo y nombre */}
+      <Container className={`text-center my-4 ${styles.loginContainer}`}>
+        <img 
+          src="/images/LogoEmpresa.jpg" 
+          alt="LogoEmpresa" 
+          className={`img-fluid rounded mx-auto d-block mb-2 ${styles.loginLogo}`} 
+        />
+        <h1 className={styles.loginTitle}>Pastelería Mil Sabores</h1>
+      </Container>
+
+      {/* Login Form */}
+      <Container className={`my-5 ${styles.loginFormContainer}`}>
+        <Row className="justify-content-center">
+          <Col md={8} lg={6}>
+            <h2 className="text-center mb-4">Iniciar Sesión</h2>
+
+            <Form noValidate validated={validated} onSubmit={handleSubmit} className={styles.loginForm}>
+              <Form.Group className="mb-3" controlId="emailId">
+                <Form.Label>Correo</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="ejemplo@duoc.cl"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  pattern="^[a-zA-Z0-9._%+-]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$"
+                />
+                <Form.Control.Feedback type="invalid">
+                  El correo no es válido.
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="contraseñaId">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="**********"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={4}
+                  maxLength={10}
+                />
+                <Form.Control.Feedback type="invalid">
+                  La contraseña no es válida.
+                </Form.Control.Feedback>
+              </Form.Group>
+
+              <div className="d-grid">
+                <Button type="submit" variant="primary">
+                  Enviar
+                </Button>
+              </div>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
 
       <FooterComponents />
     </>
   );
 }
 
-export default Login;
