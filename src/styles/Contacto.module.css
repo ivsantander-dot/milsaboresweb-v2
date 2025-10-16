@@ -1,0 +1,48 @@
+.formulario {
+  background-color: var(--color-light);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btnEnviar {
+  background-color: var(--color-primary);
+  border: none;
+  color: white;
+  width: 150px;
+  margin-top: 10px;
+}
+
+.btnEnviar:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+
+/* Tooltip */
+.guiaValidacion {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.guiaValidacionTexto {
+  visibility: hidden;
+  width: 220px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  bottom: 125%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.85rem;
+  z-index: 10;
+}
+
+.guiaValidacion:hover .guiaValidacionTexto {
+  visibility: visible;
+  opacity: 1;
+}

@@ -28,16 +28,26 @@ export default function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    if (!form.checkValidity() || formData.password !== formData.confirmPassword) {
-      e.stopPropagation();
-      setValidated(true);
+  const handleSubmit = (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+
+  if (!form.checkValidity()) {
+    event.stopPropagation();
+  } else {
+    const { name, email, password, confirmPassword } = formData;
+
+    if (password !== confirmPassword) {
+      alert("Las contraseñas no coinciden. ❌");
       return;
     }
-    
-  };
+
+    alert('Registro exitoso. ✅');
+    setFormData({ name: "", email: "", password: "", confirmPassword: "" });
+  }
+
+  setValidated(true);
+};
 
   // Función para llenar comunas según región
   const getComunas = (region) => {

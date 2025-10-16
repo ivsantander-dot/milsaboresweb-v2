@@ -1,7 +1,6 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
 import HeaderComponents from "../components/Header/HeaderComponents";
 import FooterComponent from "../components/Footer/FooterComponent";
-import links from "../links";
 
 
 export default function HazañaTorta() {
@@ -21,35 +20,35 @@ export default function HazañaTorta() {
                 <p>
                 En 1995, Pastelería 1000 Sabores logró un récord Guinness al crear
                 la torta más grande del mundo, un hito que consolidó su nombre en
-                la historia de la repostería chilena y mundial.<br />
+                la historia de la repostería chilena y mundial.
                 Este enorme pastel no solo impresionó por sus dimensiones, sino
-                también por la complejidad de su elaboración.<br />
+                también por la complejidad de su elaboración.
                 Cada capa fue cuidadosamente planificada y elaborada, combinando
                 bizcochos suaves, rellenos cremosos, frutas frescas y coberturas
-                artísticas, todo con un nivel de detalle excepcional.<br />
+                artísticas, todo con un nivel de detalle excepcional.
                 El equipo de pasteleros trabajó durante días, coordinando cada
                 movimiento para que la torta mantuviera su forma, textura y sabor
                 en toda su extensión.<br /><br />
                 La logística para crear un pastel de tal magnitud fue
-                extraordinaria.<br />
+                extraordinaria.
                 Se requirió maquinaria industrial especializada para mezclar,
                 hornear y montar las capas, así como herramientas de precisión
-                para asegurar que cada sección quedara perfectamente nivelada.<br />
+                para asegurar que cada sección quedara perfectamente nivelada.
                 Los ingredientes se seleccionaron cuidadosamente, garantizando
-                frescura y calidad en cada porción.<br />
+                frescura y calidad en cada porción.
                 La decoración, un trabajo de verdadera artesanía, combinó técnicas
                 clásicas y modernas, logrando que la torta no solo fuera
-                gigantesca, sino también visualmente impresionante.<br />
+                gigantesca, sino también visualmente impresionante.
                 La hazaña fue celebrada por profesionales del rubro, medios de
                 comunicación y miles de visitantes que se acercaron para
                 presenciar este momento histórico.<br /><br />
-                El impacto de la creación fue mucho más allá del récord en sí.<br />
+                El impacto de la creación fue mucho más allá del récord en sí.
                 La torta se convirtió en un símbolo de innovación, dedicación y
                 creatividad, inspirando a nuevas generaciones de reposteros a
-                explorar los límites de lo posible.<br />
+                explorar los límites de lo posible.
                 Cada corte y cada sabor reflejaban la pasión del equipo, mostrando
                 que incluso los proyectos más ambiciosos podían lograrse con
-                esfuerzo, técnica y coordinación.<br />
+                esfuerzo, técnica y coordinación.
                 La historia de la torta más grande del mundo sigue siendo recordada
                 como una proeza que combinó arte y ciencia culinaria, consolidando
                 el legado de Pastelería 1000 Sabores como un referente de
@@ -60,11 +59,11 @@ export default function HazañaTorta() {
             <Col xs={12} lg={4} className="order-2">
                 <figure>
                 <Image
-                    src="src/assets/pasteles/pastelgigante.png"
+                    src="src/assets/nosotros/pastelgigante.png"
                     fluid
                     rounded
                     className="mx-auto w-100"
-                    alt="pastel de chocolate 1"
+                    alt="pastel gigante"
                 />
                 </figure>
             </Col>

@@ -7,6 +7,7 @@ const links = {
   carrito: "/carrito",
   blogsArticle1: "/blogsArticle1",
   blogsArticle2: "/blogsArticle2",
+  blogsArticle3: "/blogsArticle3",
   homeAdmin : "/homeAdmin",
   login: "/login",
   register: "/register",

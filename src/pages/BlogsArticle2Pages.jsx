@@ -2,6 +2,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import HeaderComponents from "../components/Header/HeaderComponents";
 import FooterComponent from "../components/Footer/FooterComponent";
 
+
 export default function HazañaTorta() {
   return (
     <>
@@ -20,29 +21,29 @@ export default function HazañaTorta() {
                 <p>
                     Ricardo Morales, un talentoso pastelero de Viña del Mar, logró
                     un hito al llevarse el máximo galardón en el prestigioso
-                    Concurso Mundial de Repostería celebrado en París.<br />
+                    Concurso Mundial de Repostería celebrado en París.
                     Su creación, la innovadora "Torta Cuadrada de Frutas", destacó
                     por la combinación perfecta de bizcocho de vainilla, frutas
                     frescas y crema chantilly, ofreciendo un equilibrio de sabores
-                    que sorprendió al jurado.<br />
+                    que sorprendió al jurado.
                     El pastelero dedicó su victoria a la inspiración de los sabores
                     costeros de su ciudad natal, transmitiendo en cada capa la
                     frescura y autenticidad de Viña del Mar.<br /><br />
                     La preparación de la torta fue meticulosa. Cada ingrediente fue
                     seleccionado con cuidado, desde las frutas más frescas hasta la
-                    crema chantilly batida a punto exacto.<br />
+                    crema chantilly batida a punto exacto.
                     La presentación fue un elemento clave: la forma cuadrada
                     permitió un diseño innovador que resaltaba los colores y
                     texturas de cada fruta, creando un efecto visual que cautivó a
-                    todos los presentes.<br />
+                    todos los presentes.
                     El jurado destacó no solo la técnica impecable, sino también la
                     creatividad de Morales al combinar elementos tradicionales con
                     un enfoque moderno y elegante.<br /><br />
                     La victoria en París consolidó a Ricardo Morales como uno de los
-                    referentes de la repostería chilena a nivel internacional.<br />
+                    referentes de la repostería chilena a nivel internacional.
                     Su torta demostró que la innovación puede coexistir con la
                     tradición, logrando un resultado que es tanto estéticamente
-                    impresionante como delicioso al paladar.<br />
+                    impresionante como delicioso al paladar.
                     Este logro histórico inspira a otros pasteleros a explorar
                     nuevas formas de combinar sabores y técnicas, reafirmando que la
                     pasión y el detalle son la clave del éxito en la repostería

@@ -13,24 +13,24 @@ export default function Login() {
   const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
 
-  // Manejar envío del formulario
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.currentTarget;
+  e.preventDefault();
+  const form = e.currentTarget;
 
-    if (!form.checkValidity()) {
-      e.stopPropagation();
-      setValidated(true);
-      return;
-    }
+  if (!form.checkValidity()) {
+    e.stopPropagation();
+    setValidated(true);
+    return;
+  }
 
-    // Validación de login
-    if (email.trim() === "admin@gmail.com" && password.trim() === "admin") {
-      navigate("/homeAdmin");
-    } else {
-      setValidated(true);
-    }
-  };
+  // Login validation
+  if (email.trim() === "admin@gmail.com" && password.trim() === "admin") {
+    navigate("/homeAdmin");
+  } else {
+    alert("Correo o contraseña incorrectos. ❌");
+    setValidated(true);
+  }
+};
 
   return (
     <>
