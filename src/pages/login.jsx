@@ -104,7 +104,7 @@ export default function Login() {
               </Form.Group>
 
               <div className="d-grid">
-                <Button type="submit" variant="primary">
+                <Button type="submit" variant="primary" className={styles.btnEnviar}>
                   Enviar
                 </Button>
               </div>

@@ -1,0 +1,12 @@
+.btnVerMas {
+  background-color: var(--color-primary);
+  border: none;
+  color: white;
+  width: 150px;
+  margin-top: 10px;
+}
+
+.btnVerMas:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+}

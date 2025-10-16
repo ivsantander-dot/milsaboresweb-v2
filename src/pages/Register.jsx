@@ -247,7 +247,7 @@ export default function Register() {
               </Form.Group>
 
               <div className="d-grid mb-5">
-                <Button type="submit" variant="primary">Registrarse</Button>
+                <Button type="submit" variant="primary" className={styles.btnEnviar}>Registrarse</Button>
               </div>
             </Form>
           </Col>

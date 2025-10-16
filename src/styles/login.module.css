@@ -97,3 +97,16 @@
   border-style: solid;
   border-color: #333 transparent transparent transparent;
 }
+
+.btnEnviar {
+  background-color: var(--color-primary);
+  border: none;
+  color: white;
+  width: 150px;
+  margin-top: 10px;
+}
+
+.btnEnviar:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+}

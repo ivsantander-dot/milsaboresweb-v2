@@ -17,6 +17,7 @@ import ProductoDetalle from "./pages/ProductoDetalle";
 function App() {
   return (
     <>
+      <div className="app-background">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blogs" element={<Blogs />} />
@@ -32,6 +33,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/productoDetalle" element={<ProductoDetalle />} />        
       </Routes>
+      </div>
     </>
   );
 }
