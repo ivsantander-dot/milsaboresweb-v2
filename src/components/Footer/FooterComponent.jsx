@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
+import mastercardImg from '../Footer/assets/mastercard.png';
+import visaImg from '../Footer/assets/visa.png';
+import redcompraImg from '../Footer/assets/redcompra.png';
 
 /**
  * Componente Footer
@@ -59,55 +62,50 @@ function Footer() {
           <Col md={6} className="mb-3 mb-md-0">
             {/* Enlaces de categorías */}
             <div className="mb-3">
-              <Link to="/productos" className={styles.categoryLink}>
+              <Link to="/productos" className={styles.footerCategories}>
                 Productos
               </Link>
-              |
-              <Link to="/nosotros" className={styles.categoryLink}>
+              {" "}|{" "}
+              <Link to="/nosotros" className={styles.footerCategories}>
                 Nosotros
               </Link>
-              |
-              <Link to="/contacto" className={styles.categoryLink}>
+              {" "}|{" "}
+              <Link to="/contacto" className={styles.footerCategories}>
                 Contacto
               </Link>
             </div>
 
             {/* Iconos de medios de pago */}
-            <div className="d-flex gap-2 flex-wrap">
-              <span className={styles.paymentIcon}>💳 Visa</span>
-              <span className={styles.paymentIcon}>💳 Mastercard</span>
-              <span className={styles.paymentIcon}>💳 RedCompra</span>
-            </div>
+            <Container className="d-flex gap-2 flex-wrap align-items-center">
+              <img src={visaImg} alt="Visa" className={styles.paymentIcons} />
+              <img src={mastercardImg} alt="Mastercard" className={styles.paymentIcons} />
+              <img src={redcompraImg} alt="RedCompra" className={styles.paymentIcons} />
+            </Container>
           </Col>
 
           {/* Columna derecha: Newsletter */}
-          <Col md={6}>
-            <p className={styles.newsletterTitle}>
+          <Col md={6} className="footerRight">
+            <p className="newsletterTitle">
               Mantente al tanto de más noticias
             </p>
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-2">
-                <Form.Control
-                  type="email"
-                  placeholder="Ingresar correo"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </Form.Group>
-              <Button 
-                type="submit" 
-                className={styles.subscribeButton}
-              >
+            <Form onSubmit={handleSubmit} className="d-flex align-items-center gap-2">
+              <Form.Control
+                type="email"
+                placeholder="Ingresar correo"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="footer-input"
+              />
+              <Button type="submit" className="footer-button">
                 Suscribirse
               </Button>
-              
-              {/* Mensaje de confirmación */}
-              {mensaje && (
-                <div className="mt-2 text-white">
-                  {mensaje}
-                </div>
-              )}
             </Form>
+
+            {mensaje && (
+              <div className="mt-2 text-white">
+                {mensaje}
+              </div>
+            )}
           </Col>
         </Row>
       </Container>

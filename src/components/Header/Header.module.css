@@ -4,8 +4,11 @@
   padding: 10px 0;
 }
 
-.logo img {
-  border-radius: 4px;
+.logoImg {
+  width: 40px;
+  height: 35px;
+  margin-right: 8px;
+  margin-left: 10px;
 }
 
 /* Sobrescribir estilos de Bootstrap para el navbar */
@@ -33,6 +36,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  margin-right: 10px;
 }
 
 .cartIcon {

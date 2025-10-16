@@ -46,10 +46,12 @@ function Header() {
     <header className={styles.header}>
       <Navbar expand="lg" variant="dark" className={styles.navbar}>
         
-          {/* Logo */}
+          
           <Navbar.Brand as={Link} to={links.home} className="d-flex align-items-center">
             
-            PMS©
+              <img src={logoImg} alt="Logo" className={styles.logoImg}/>
+              PMS©
+            
           </Navbar.Brand>
 
           {/* Botón hamburguesa (móvil) */}
@@ -68,7 +70,7 @@ function Header() {
 
           {/* Carrito con contador dinámico */}
           <Link to={links.carrito} className={styles.cartLink}>
-            <span className={styles.cartIcon}></span>
+            <img src={carritoImg} alt="carritoIcon" className={styles.cartIcon}/>
             Carrito (<span>{cartCount}</span>)
           </Link>
        
