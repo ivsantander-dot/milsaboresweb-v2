@@ -48,26 +48,31 @@ function HomePages() {
       </div>
 
        {/* Sección de productos destacados */}
-      <section className={styles.productsSection}>
-        <h3 className={styles.productsTitle}>Productos destacados</h3>
-        <div className={styles.productsGrid}>
-          {featuredProducts.map((product) => (
-            <article key={product.id} className={styles.productCard}>
-              <img
-                src={product.imagen}
-                alt={product.nombre}
-                className={styles.productImg}
-              />
-              <h4>{product.nombre}</h4>
-              <p>{product.descripcion}</p>
-              <p className={styles.productPrice}>${product.precio.toLocaleString('es-CL')}</p>
-              <Link to="/productos">
-                <button className={styles.productBtn}>Ver más</button>
-              </Link>
-            </article>
-          ))}
-        </div>
-      </section>
+        <section className={styles.productsSection}>
+          <h3 className={styles.productsTitle}>Productos destacados</h3>
+          <div className={styles.productsGrid}>
+            {featuredProducts.map((product) => (
+              <article key={product.id} className={styles.productCard}>
+                <img
+                  src={product.imagen}
+                  alt={product.nombre}
+                  className={styles.productImg}
+                />
+                <h4>{product.nombre}</h4>
+                <p>{product.descripcion}</p>
+                <p className={styles.productPrice}>${product.precio.toLocaleString('es-CL')}</p>
+
+                {/* Botón para ir al detalle del producto */}
+                <Link 
+                  to={`/producto/${product.id}`} 
+                  state={{ productoId: product.id }} // pasamos el id por estado
+                >
+                  <button className={styles.productBtn}>Ver detalle</button>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </section>
 
       <FooterComponents/>
     </>

@@ -8,7 +8,7 @@ import productsData from '../data/productsData';
 import { addToCart } from '../utils/carthelpers';
 
 function ProductoDetalle() {
-  const { id } = useParams(); // id del producto desde la URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
 
   const [producto, setProducto] = useState(null);
