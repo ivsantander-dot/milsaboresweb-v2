@@ -13,7 +13,9 @@ import Contacto from "./pages/Contacto";
 import Login from "./pages/login";
 import Register from "./pages/Register";
 import ProductoDetalle from "./pages/ProductoDetalle";
-
+import CheckoutPage from './pages/CheckoutPage';
+import CompraExitosaPage from './pages/CompraExitosaPage';
+import CompraErrorPage from './pages/CompraErrorPage';
 function App() {
   return (
     <>
@@ -31,7 +33,11 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/productoDetalle" element={<ProductoDetalle />} />        
+        <Route path="/productoDetalle" element={<ProductoDetalle />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/compra-exitosa" element={<CompraExitosaPage />} />
+        <Route path="/compra-error" element={<CompraErrorPage />} />
+       
       </Routes>
       </div>
     </>

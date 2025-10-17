@@ -11,7 +11,9 @@ const links = {
   homeAdmin : "/homeAdmin",
   login: "/login",
   register: "/register",
-  productoDetalle: "/productoDetalle"
+  productoDetalle: "/productoDetalle",
+  checkout: "/checkout",
+  compraExitosa: "/compra-exitosa"
 };
 
 export default links;

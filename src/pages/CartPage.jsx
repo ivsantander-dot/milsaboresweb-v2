@@ -103,15 +103,13 @@ function CartPage() {
 
   // Proceder al pago
   const handleProcederPago = () => {
-    if (carrito.length === 0) {
-      alert('Tu carrito está vacío');
-      return;
-    }
-    // Aquí normalmente redirigiríamos a checkout
-    alert('Redirigiendo al pago...');
-    // navigate('/checkout'); // Cuando crees la página de checkout
-  };
-
+  if (carrito.length === 0) {
+    alert('Tu carrito está vacío');
+    return;
+  }
+  // Redirigir a checkout
+  navigate('/checkout');
+};
   return (
     <>
       <Header />
