@@ -4,8 +4,11 @@ import FooterComponents from '../components/Footer/FooterComponent'
 import { Link } from 'react-router-dom'
 import styles from "../styles/home.module.css"
 import placeholderImg from "../assets/nosotros/placeholder.png"
+import { products } from "../data/productsData";
 
 function HomePages() {
+  const featuredProducts = products.filter((p) => p.destacado === true);
+  
   return (
     <>
       <HeaderComponents/>
@@ -43,6 +46,28 @@ function HomePages() {
           <button className={styles.btnProductos}>Ver productos</button>
         </Link>
       </div>
+
+       {/* Sección de productos destacados */}
+      <section className={styles.productsSection}>
+        <h3 className={styles.productsTitle}>Productos destacados</h3>
+        <div className={styles.productsGrid}>
+          {featuredProducts.map((product) => (
+            <article key={product.id} className={styles.productCard}>
+              <img
+                src={product.imagen}
+                alt={product.nombre}
+                className={styles.productImg}
+              />
+              <h4>{product.nombre}</h4>
+              <p>{product.descripcion}</p>
+              <p className={styles.productPrice}>${product.precio.toLocaleString('es-CL')}</p>
+              <Link to="/productos">
+                <button className={styles.productBtn}>Ver más</button>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <FooterComponents/>
     </>
