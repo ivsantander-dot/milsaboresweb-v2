@@ -19,7 +19,7 @@ function ProductCard({
   nombre, 
   descripcion, 
   precio, 
-  imagen,   // imagen ahora es una importación, no un string
+  imagen,
   enOferta = false 
 }) {
   const [cantidad, setCantidad] = useState(1);
