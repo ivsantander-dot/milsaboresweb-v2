@@ -136,3 +136,5 @@ export const searchProducts = (searchTerm) => {
     p.descripcion.toLowerCase().includes(term)
   );
 };
+
+export default products;

@@ -16,6 +16,11 @@ import ProductoDetalle from "./pages/ProductoDetalle";
 import CheckoutPage from './pages/CheckoutPage';
 import CompraExitosaPage from './pages/CompraExitosaPage';
 import CompraErrorPage from './pages/CompraErrorPage';
+
+
+
+
+
 function App() {
   return (
     <>
@@ -37,7 +42,10 @@ function App() {
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/compra-exitosa" element={<CompraExitosaPage />} />
         <Route path="/compra-error" element={<CompraErrorPage />} />
-       
+        <Route path="/producto/:id" element={<ProductoDetalle />} />
+     
+
+
       </Routes>
       </div>
     </>

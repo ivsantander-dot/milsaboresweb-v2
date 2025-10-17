@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { addToCart } from '../../utils/carthelpers';
 import styles from './ProductCard.module.css';
-
+import { useNavigate } from 'react-router-dom';
 /**
  * Componente ProductCard
  * Tarjeta de producto individual con gestión de estado
@@ -19,12 +19,12 @@ function ProductCard({
   nombre, 
   descripcion, 
   precio, 
-  imagen,
+  imagen,   // imagen ahora es una importación, no un string
   enOferta = false 
 }) {
   const [cantidad, setCantidad] = useState(1);
   const [mensaje, setMensaje] = useState('');
-
+  const navigate = useNavigate();
   const handleCantidadChange = (e) => {
     const value = parseInt(e.target.value);
     if (value >= 1) setCantidad(value);
@@ -39,6 +39,10 @@ function ProductCard({
 
     window.dispatchEvent(new Event('storage'));
     setCantidad(1);
+  };
+
+  const handleVerDetalle = () => {
+    navigate(`/producto/${id}`);
   };
 
   return (
@@ -79,7 +83,15 @@ function ProductCard({
       >
         Agregar al carrito
       </Button>
-
+      
+      <Button 
+        variant="outline-secondary" 
+        className="w-100 mt-2"
+        onClick={handleVerDetalle}
+      >
+        Ver detalle
+      </Button>
+      
       {mensaje && <div className={styles.mensaje}>{mensaje}</div>}
     </article>
   );
