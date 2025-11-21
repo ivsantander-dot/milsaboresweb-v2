@@ -1,44 +1,51 @@
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import { addToCart } from '../../utils/carthelpers';
-import styles from './ProductCard.module.css';
 import { useNavigate } from 'react-router-dom';
-/**
- * Componente ProductCard
- * Tarjeta de producto individual con gestión de estado
- * 
- * DEMUESTRA PARA LA EVALUACIÓN:
- * - Gestión de PROPS (datos del producto)
- * - Gestión de STATE (cantidad, mensaje de confirmación)
- * - Eventos (onClick, onChange)
- * - Diseño responsivo con Bootstrap
- */
+import { carritoAPI } from '../../services/api'; 
+import styles from './ProductCard.module.css';
+
 function ProductCard({ 
   id, 
   nombre, 
   descripcion, 
   precio, 
-  imagen,   // imagen ahora es una importación, no un string
+  imagen, 
   enOferta = false 
 }) {
   const [cantidad, setCantidad] = useState(1);
   const [mensaje, setMensaje] = useState('');
+  const [cargando, setCargando] = useState(false); 
   const navigate = useNavigate();
+
   const handleCantidadChange = (e) => {
     const value = parseInt(e.target.value);
     if (value >= 1) setCantidad(value);
   };
 
-  const handleAgregarCarrito = () => {
-    const producto = { id, nombre, descripcion, precio, imagen };
-    addToCart(producto, cantidad);
+  const handleAgregarCarrito = async () => {
+    setCargando(true); // Deshabilita el botón mientras carga
+    try {
+      // Llamada al Microservicio de Carrito (AWS)
+      await carritoAPI.addItem({ 
+        productoId: id, 
+        cantidad: cantidad 
+      });
 
-    setMensaje(`✓ ${cantidad} ${nombre} agregado(s) al carrito`);
-    setTimeout(() => setMensaje(''), 3000);
+      // Feedback visual de éxito
+      setMensaje(`✓ ${cantidad} ${nombre} agregado(s)`);
+      setCantidad(1);
 
-    window.dispatchEvent(new Event('storage'));
-    setCantidad(1);
+
+    } catch (error) {
+      console.error(error);
+      // Manejo de errores (ej: Token vencido o sin stock)
+      setMensaje('❌ Error: ¿Iniciaste sesión?');
+    } finally {
+      setCargando(false); // Reactiva el botón
+      // Limpiar mensaje a los 3 seg
+      setTimeout(() => setMensaje(''), 3000);
+    }
   };
 
   const handleVerDetalle = () => {
@@ -49,9 +56,8 @@ function ProductCard({
     <article className={styles.card}>
       {enOferta && <span className={styles.badge}>¡OFERTA!</span>}
 
-      {/* 🔹 Imagen ahora viene importada directamente, sin usar /src/ */}
       <img 
-        src={imagen}
+        src={imagen || "https://via.placeholder.com/150"}
         alt={nombre}
         className={styles.image}
         onError={(e) => {
@@ -60,7 +66,9 @@ function ProductCard({
       />
 
       <h3 className={styles.title}>{nombre}</h3>
-      <p className={styles.description}>{descripcion}</p>
+      <p className={styles.description}>
+        {descripcion ? descripcion.substring(0, 60) : ''}...
+      </p>
       <p className={styles.price}>${precio.toLocaleString('es-CL')}</p>
 
       <div className={styles.quantityControl}>
@@ -80,8 +88,9 @@ function ProductCard({
         variant="primary" 
         className="mi-button w-100 mt-2"
         onClick={handleAgregarCarrito}
+        disabled={cargando} // Evita doble click
       >
-        Agregar al carrito
+        {cargando ? 'Agregando...' : 'Agregar al carrito'}
       </Button>
       
       <Button 
@@ -92,7 +101,15 @@ function ProductCard({
         Ver detalle
       </Button>
       
-      {mensaje && <div className={styles.mensaje}>{mensaje}</div>}
+      {/* Mensaje flotante de éxito o error */}
+      {mensaje && (
+        <div 
+          className={styles.mensaje} 
+          style={{ backgroundColor: mensaje.includes('Error') ? '#ffcccc' : '#d4edda', color: mensaje.includes('Error') ? 'red' : 'green' }}
+        >
+          {mensaje}
+        </div>
+      )}
     </article>
   );
 }
@@ -100,9 +117,9 @@ function ProductCard({
 ProductCard.propTypes = {
   id: PropTypes.number.isRequired,
   nombre: PropTypes.string.isRequired,
-  descripcion: PropTypes.string.isRequired,
+  descripcion: PropTypes.string,
   precio: PropTypes.number.isRequired,
-  imagen: PropTypes.string.isRequired,
+  imagen: PropTypes.string,
   enOferta: PropTypes.bool
 };
 
